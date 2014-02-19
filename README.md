@@ -7,7 +7,29 @@
  Twitter:     @zapinero<br>
 
 
+## Bomber Alert
 
+### 1) Clonar e instalar dependencias
+
+Clonar
+```sh
+git clone https://github.com/zapinero/BomberAlert
+npm install //Para instalar los modulos necesarios
+```
+
+### 2) Base de datos MySQL
+El archivo BD_nodejs.sql contiene el script para la creacion de la base datos y la insercion de algunos datos de prueba
+
+Abrir la consola de MySQL y ejecutar el contenido del archivo BD_nodejs.sql 
+
+### 3) Visualizar y agregar marcadores
+```sh
+node server.js
+```
+Para visualizar el mapa con los marcadores abrir en el navegador localhost:8000
+Para agregar marcadores abrir en el navegador localhost/bomberalert/incidente.html
+
+La pagina incidente.html esta optimizado para moviles utilizando jquery mobile y utiliza la propiedad Geolocation de html5 para obtener la ubicacion.
 
 
 nodejs-MySQL-push-notifications-demo
