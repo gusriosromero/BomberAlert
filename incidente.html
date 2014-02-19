@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta lang='es'>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.1.css">
+  <script  type="text/javascript" src="js/jquery-2.1.0.js"> </script>
+  <script  type="text/javascript" src="js/jquery.mobile-1.4.1.js"> </script>
+  
+  <script type="text/javascript">
+
+      $(document).ready(function(){
+        getLocation();
+
+        function getLocation()
+          {
+          
+          if (navigator.geolocation)
+            {
+            navigator.geolocation.getCurrentPosition(
+              showPosition
+              );
+            }
+          else{x.innerHTML="Geolocation no es soportado por tu navegador.";}
+          }
+
+        function showPosition(position)
+          {
+          $('#lat').val(position.coords.latitude.toFixed(6));
+          $('#lon').val(position.coords.longitude.toFixed(6));
+          }
+      })
+
+  </script>
+
+</head>
+
+<body>
+  <div data-role="page" id="login">
+    <div data-theme="a" data-role="header">
+        <h1>
+            Emergencia
+        </h1>
+    </div>
+
+    <div data-role="content" data-theme="a">
+      <form action="guardar.php" method="POST" data-ajax="false">
+        <label for="id">ID</label>
+        <input type="text" name="id" id="id">
+        <label for="nombe">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+        <label for="latitud">Latitud</label>
+        <input type="text" name="lat" id="lat">
+        <label for="longitud">Longitud</label>
+        <input type="text" name="lon" id="lon">
+        <label for="Estado">Estado</label>
+        <input type="text" name="estado" id="estado">
+        <label for="incidente">Incidente</label>
+        <input type="text" name="incidente" id="incidente">
+        <input type="submit" value="Cargar">
+      </form>
+<!--          <div data-role="fieldcontain">
+            <label for="textinput1">
+                Latitud
+            </label>
+            <input name="lat" id="lat" value="" type="text">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="textinput2">
+                Longitud
+            </label>
+            <input name="lon" id="lon" type="text">
+        </div>
+        <input type="submit" data-inline="true" data-theme="b" data-icon="check"
+        data-iconpos="left" value="IINGRESAR" class="center-button">
+        <a data-role="button" data-theme="b" href="#institucion" data-icon="arrow-r"
+        data-iconpos="right">
+            CARGAR
+        </a> 
+    </div>-->
+  </div>
+</body>
+</html>
