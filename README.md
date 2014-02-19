@@ -27,6 +27,7 @@ Abrir la consola de MySQL y ejecutar el contenido del archivo BD_nodejs.sql
 node server.js
 ```
 Para visualizar el mapa con los marcadores abrir en el navegador localhost:8000
+
 Para agregar marcadores abrir en el navegador localhost/bomberalert/incidente.html
 
 La pagina incidente.html esta optimizado para moviles utilizando jquery mobile y utiliza la propiedad Geolocation de html5 para obtener la ubicacion.

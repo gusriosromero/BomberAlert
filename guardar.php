@@ -22,19 +22,4 @@
 	// Ejecutar consulta
 	$ex_query=mysql_query($query);
 
-	// if ($ex_query) { 
-	// 	alert("Los datos de la marca han sido modificados correctamente"); 
-	// }
-
-	//echo $id;
-	// echo '</br>';
-	// echo $nombre;
-	// echo '</br>';
-	// echo $lat;
-	// echo '</br>';
-	// echo $lon;
-	// echo '</br>';
-	// echo $estado;
-	// echo '</br>';
-	// echo $incidente;
 ?>
