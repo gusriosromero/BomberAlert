@@ -11,15 +11,15 @@
 	$nombre = $_POST['nombre'];
 	$lat = $_POST['lat'];
 	$lon = $_POST['lon'];
-	$estado = $_POST['estado'];
+	$estado = 1;
 	$incidente = $_POST['incidente'];
 
 	// Consulta
-	$query="INSERT INTO users (user_id, user_name, user_lat, user_lon, user_state, user_incident) 
+	$query="INSERT INTO users (user_id, user_name, user_lat, user_lon, user_state, inc_type) 
 					VALUES ('$id', '$nombre', '$lat', '$lon', '$estado', '$incidente')";
 					// VALUES ('', '$mar_descripcion', '0')";		
 
 	// Ejecutar consulta
 	$ex_query=mysql_query($query);
-
+	echo "guardo correctamente";
 ?>

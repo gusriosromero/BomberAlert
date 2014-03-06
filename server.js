@@ -21,10 +21,10 @@ connection.connect(function(err) {
 
 // creating the server ( localhost:8000 )
 app.listen(8000);
-
 // on server started we can load our client.html page
 function handler(req, res) {
   fs.readFile(__dirname + '/client.html', function(err, data) {
+    //console.log(__dirname)
     if (err) {
       console.log(err);
       res.writeHead(500);
@@ -36,17 +36,14 @@ function handler(req, res) {
 }
 
 /*
- *
  * HERE IT IS THE COOL PART
  * This function loops on itself since there are sockets connected to the page
  * sending the result of the database query after a constant interval
- *
- */
+  */
 
 var pollingLoop = function() {
-
   // Doing the database query
-  var query = connection.query('SELECT * FROM users where user_state=1'),
+  var query = connection.query('SELECT * FROM users'),
     users = []; // this array will contain the result of our db query
 
   // setting the query listeners
@@ -66,15 +63,12 @@ var pollingLoop = function() {
       // loop on itself only if there are sockets still connected
       if (connectionsArray.length) {
         pollingTimer = setTimeout(pollingLoop, POLLING_INTERVAL);
-
         updateSockets({
           users: users
         });
       }
     });
-
 };
-
 
 // creating a new websocket to keep the content updated without any AJAX request
 io.sockets.on('connection', function(socket) {
@@ -91,10 +85,8 @@ io.sockets.on('connection', function(socket) {
       connectionsArray.splice(socketIndex, 1);
     }
   });
-
   console.log('Un nuevo socket se ha conectado!');
   connectionsArray.push(socket);
-
 });
 
 var updateSockets = function(data) {
@@ -102,6 +94,6 @@ var updateSockets = function(data) {
   data.time = new Date();
   // sending new data to all the sockets connected
   connectionsArray.forEach(function(tmpSocket) {
-    tmpSocket.volatile.emit('notification', data);
+    tmpSocket.volatile.emit('notificationAccidents', data);
   });
 };
